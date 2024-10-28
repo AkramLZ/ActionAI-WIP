@@ -1,6 +1,7 @@
 package com.akraml.actionai.actions;
 
 import com.akraml.actionai.LLMAction;
+import com.akraml.actionai.StringUtils;
 
 public class RunOsCommandAction implements LLMAction {
     @Override
@@ -14,13 +15,11 @@ public class RunOsCommandAction implements LLMAction {
     }
 
     @Override
-    public Runnable process(String value) {
-        return () -> {
-            try {
-                Runtime.getRuntime().exec(new String[] { value });
-            } catch (Exception exception) {
-                System.out.println("Error while executing os command: " + exception.getMessage());
-            }
-        };
+    public void process(String value) {
+        try {
+            Runtime.getRuntime().exec(StringUtils.splitCommand(value).toArray(new String[0]));
+        } catch (Exception exception) {
+            System.out.println("Error while executing os command: " + exception.getMessage());
+        }
     }
 }

@@ -15,7 +15,7 @@ public class OpenWebsiteAction implements LLMAction {
     }
 
     @Override
-    public Runnable process(String value) {
-        return new RunOsCommandAction().process("\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" \"" + value + "\"");
+    public void process(String value) {
+        new RunOsCommandAction().process("\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" \"" + value + "\"");
     }
 }

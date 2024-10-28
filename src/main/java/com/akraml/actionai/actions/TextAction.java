@@ -14,7 +14,7 @@ public class TextAction implements LLMAction {
     }
 
     @Override
-    public Runnable process(String value) {
-        return () -> System.out.println("[Assistant] " + value);
+    public void process(String value) {
+        System.out.println("[Assistant] " + value);
     }
 }

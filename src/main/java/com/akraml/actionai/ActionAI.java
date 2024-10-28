@@ -45,7 +45,7 @@ public class ActionAI {
                     System.out.println("ERROR: Invalid action '" + actionName + "'");
                     continue;
                 }
-                action.process(value).run();
+                action.process(value);
             }
 
         }

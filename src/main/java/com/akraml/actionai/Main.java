@@ -1,8 +1,6 @@
 package com.akraml.actionai;
 
-import com.akraml.actionai.actions.OpenWebsiteAction;
-import com.akraml.actionai.actions.RunOsCommandAction;
-import com.akraml.actionai.actions.TextAction;
+import com.akraml.actionai.actions.*;
 import gg.makera.ai.llm.groq.GroqClient;
 import gg.makera.ai.llm.groq.GroqModel;
 
@@ -17,7 +15,12 @@ public class Main {
         actionAI.registerActions(
                 new TextAction(),
                 new OpenWebsiteAction(),
-                new RunOsCommandAction()
+                new RunOsCommandAction(),
+                new RunOsCommandWithOutputAction(),
+                // Java compile
+                new WriteToFileAction(),
+                new WriteJavaCodeAction(),
+                new CompileAndRunJavaAction()
         );
         actionAI.startListener(client);
 
